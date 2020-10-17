@@ -16,10 +16,10 @@ class StationDao {
     };
 
     return fetchStations(stationUrl).then((stations) => {
-      l.info('Found ' + stations.length + ' stations.');
+      l.debug('Retrieved ' + stations.length + ' stations.');
       stations.forEach((station) => {
         const id = parseInt(station['station_id']);
-        this._stationById[id] = {id: id, ...station};
+        this._stationById[id] = { id: id, ...station };
       });
     });
   }

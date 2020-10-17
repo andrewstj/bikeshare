@@ -45,12 +45,11 @@ export default class ExpressServer {
   }
 
   async initialize() {
-    l.info('I am initializing');
-    console.time('Initializing');
+    l.info('Initializing application...');
     return Promise.all([
       tripDao.initialize(),
       stationDao.initialize()
-    ]).then(() => console.timeEnd('Initializing'));
+    ]).then(() => l.info('Initialization complete.'));
   }
 
   router(routes) {

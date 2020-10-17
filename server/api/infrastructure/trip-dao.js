@@ -1,5 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
+const _ = require('lodash');
 import * as path from 'path';
 import l from '../../common/logger';
 import * as CSV from 'csv-string';
@@ -64,8 +65,8 @@ class TripDao {
     return Promise.resolve(Object.values(this._tripsByEndStationId));
   }
 
-  getTripsByEndStationIds(ids) {
-    return Promise.resolve(ids.flatMap((id) => this._tripsByStation[id]));
+  getTripsAggregatedByEndStationIds(ids) {
+    return Promise.resolve(_.pick(this._tripsByEndStationId, ids));
   }
 }
 
