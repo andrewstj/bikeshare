@@ -1,6 +1,6 @@
 # Bikeshare
 
-Bike sharing app based on Divvy data
+Bike sharing app based on Divvy data.
 
 ## Overview
 See [requirements](requirements.md). 
@@ -11,6 +11,9 @@ Things I would improve on:
 Note: this project was scaffolded from [generator-express-no-stress](https://github.com/cdimascio/generator-express-no-stress/) to quickly get a base express app created.
 
 ## Get Started
+
+### Pre-Requisite
+Go to the server/common/resources directory and unzip the Divvy_Trips_2019_Q2.zip file to the same directory (it was too big to commit directly to GitHub).
 
 Get started developing...
 

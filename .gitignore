@@ -2,3 +2,4 @@ node_modules
 dist
 .DS_Store
 orig.md
+/server/common/resources/Divvy_Trips_2019_Q2
