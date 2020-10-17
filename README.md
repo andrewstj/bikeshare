@@ -6,7 +6,7 @@ Bike sharing app based on Divvy data.
 See [requirements](requirements.md). 
 
 Things I would improve on:
-1. Use TypeScript (was told to use Javascript, but I feel like defining interfaces is crucial in code readability)
+1. Use TypeScript (Defining interfaces is crucial in code readability)
    
 Note: this project was scaffolded from [generator-express-no-stress](https://github.com/cdimascio/generator-express-no-stress/) to quickly get a base express app created.
 
