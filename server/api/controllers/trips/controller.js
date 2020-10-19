@@ -1,7 +1,7 @@
-import tripRepository from '../../services/trip-repository';
+import tripRepository from '../../business/trip-repository';
 
 export class Controller {
-  byEndStations(req, res) {
+  getLatestTripsByEndStations(req, res) {
     const defaultQuantity = 20;
     const endStationIds = req.query.ids;
     const quantity = req.query.quantity || defaultQuantity;

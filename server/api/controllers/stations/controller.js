@@ -1,4 +1,4 @@
-import stationRepository from '../../services/station-repository';
+import stationRepository from '../../business/station-repository';
 
 export class Controller {
   all(req, res) {
