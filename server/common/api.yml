@@ -69,6 +69,85 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /trip-search/_aggregateAgeByEndStations:
+    get:
+      tags:
+        - Trips
+      description: Fetch trips aggregated by age that ended at the given stations
+      parameters:
+        - name: ids
+          in: query
+          description: The ids of the end station
+          required: true
+          allowReserved: true
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        200:
+          description: Return the age aggregated trips
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+        4XX:
+          description: Trip not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Trip not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trip-search/_queryByEndStations:
+    get:
+      tags:
+        - Trips
+      parameters:
+        - name: ids
+          in: query
+          description: The ids of the end station
+          required: true
+          allowReserved: true
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: quantity
+          in: query
+          description: The number of trips per station (sorted by latest, default=20)
+          required: false
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the station with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Station'
+        4XX:
+          description: Station not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Station not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /examples:
     get:
       tags:
@@ -177,6 +256,9 @@ components:
     Station:
       type: object
       properties:
+        id: 
+          type: number
+          example: 1
         station_id:
           type: string
           example: "1"

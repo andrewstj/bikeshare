@@ -1,5 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
+const _ = require('lodash');
 import * as path from 'path';
 import l from '../../common/logger';
 import * as CSV from 'csv-string';
@@ -10,6 +11,7 @@ class TripDao {
   }
 
   async initialize() {
+    // TODO: Extract function for this.
     const cacheRecordsFromFile = async (fileName) => {
       const tripRecords = [];
       if (!fs.existsSync(fileName)) {
@@ -64,9 +66,11 @@ class TripDao {
     return Promise.resolve(Object.values(this._tripsByEndStationId));
   }
 
-  getTripsByEndStationIds(ids) {
-    return Promise.resolve(ids.flatMap((id) => this._tripsByStation[id]));
+  getTripsAggregatedByEndStationIds(ids) {
+    return Promise.resolve(_.pick(this._tripsByEndStationId, ids));
   }
+
+  // TODO: Add an insert method for testing.
 }
 
 export default new TripDao();

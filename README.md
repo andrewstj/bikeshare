@@ -3,30 +3,13 @@
 Bike sharing app based on Divvy data.
 
 ## Overview
-See [requirements](requirements.md). 
+See [requirements](requirements.md). Also see [explanation](explanation.md) for more details on my approach to the problem.
 
-Things I would improve on:
-1. Use TypeScript (was told to use Javascript, but I feel like defining interfaces is crucial in code readability)
-   
-Note: this project was scaffolded from [generator-express-no-stress](https://github.com/cdimascio/generator-express-no-stress/) to quickly get a base express app created.
 
 ## Get Started
 
 ### Pre-Requisite
 Go to the server/common/resources directory and unzip the Divvy_Trips_2019_Q2.zip file to the same directory (it was too big to commit directly to GitHub).
-
-Get started developing...
-
-```shell
-# install deps
-npm install
-
-# run in development mode
-npm run dev
-
-# run tests
-npm run test
-```
 
 ## Install Dependencies
 
@@ -74,11 +57,16 @@ npm run test:debug
 ```
 
 ## Try It
-* Open you're browser to [http://localhost:3000](http://localhost:3000)
+* Open you're browser to [http://localhost:3000](http://localhost:3000) and click on the Interactive API Doc
 * Invoke the `/stations` endpoint 
   ```shell
   curl http://localhost:3000/api/v1/stations
   ```
+The other endpoints that fulfill the requirements are:
+```shell
+curl http://localhost:3000/api/v1/trip-search/_aggregateAgeByEndStations?ids=1,2,3,99999
+curl http://localhost:3000/api/v1/trip-search/_queryByEndStations?ids=1,2,3,533,235,12,4,5,2,7&quantity=20
+```
 
 ## Debug It
 
