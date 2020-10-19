@@ -69,14 +69,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /trips:
+  /trip-search/_aggregateAgeByEndStations:
     get:
       tags:
         - Trips
-      description: Fetch all trips
+      description: Fetch trips aggregated by age that ended at the given stations
+      parameters:
+        - name: ids
+          in: query
+          description: The ids of the end station
+          required: true
+          allowReserved: true
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
       responses:
         200:
-          description: Return all the trips
+          description: Return the age aggregated trips
           content:
             application/json:
               schema:
@@ -95,7 +107,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /trips/_queryByEndStations:
+  /trip-search/_queryByEndStations:
     get:
       tags:
         - Trips

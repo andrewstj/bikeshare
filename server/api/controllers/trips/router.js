@@ -3,5 +3,5 @@ import controller from './controller';
 
 export default express
   .Router()
-  .get('/', controller.all)
-  .get('/_queryByEndStations', controller.byEndStations);
+  .get('/_queryByEndStations', controller.byEndStations)
+  .get('/_aggregateAgeByEndStations', controller.aggregateAgeByEndStations);

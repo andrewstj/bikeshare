@@ -11,6 +11,7 @@ class TripDao {
   }
 
   async initialize() {
+    // TODO: Extract function for this.
     const cacheRecordsFromFile = async (fileName) => {
       const tripRecords = [];
       if (!fs.existsSync(fileName)) {
@@ -68,6 +69,8 @@ class TripDao {
   getTripsAggregatedByEndStationIds(ids) {
     return Promise.resolve(_.pick(this._tripsByEndStationId, ids));
   }
+
+  // TODO: Add an insert method for testing.
 }
 
 export default new TripDao();
