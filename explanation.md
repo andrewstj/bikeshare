@@ -12,3 +12,4 @@
    1. Realizing there are many ways to create REST API's and it can be a highly debated topic, it's quite easy to switch the endpoint, but to get something working I went with this.
 3. For the "Latest 20 Trips" requirement, the API is a bit more flexible in allowing quantity to be picked, and it defaults to 20. I felt like hardcoding the word "twenty" into the API felt a bit less flexible than allowing user to choose the number.
 4. I try to have the code be as self documenting as possible, and added some JSDoc to certain places where it's harder to tell what the function input/output is.
+5. The OpenAPI 3 spec file can be found here: [api.yml](server/api/../common/api.yml)
