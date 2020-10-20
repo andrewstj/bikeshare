@@ -57,15 +57,16 @@ npm run test:debug
 ```
 
 ## Try It
-* Open you're browser to [http://localhost:3000](http://localhost:3000) and click on the Interactive API Doc
+* Open you're browser to [http://localhost:3000](http://localhost:3000) and click on the Interactive API Doc 
+  * On the Interactive API Doc, be sure to click "Authorize" and set the value of the API key to unlock the API's. Value can be anything.
 * Invoke the `/stations` endpoint 
   ```shell
-  curl http://localhost:3000/api/v1/stations
+  curl http://localhost:3000/api/v1/stations?X-API-KEY=abc
   ```
 The other endpoints that fulfill the requirements are:
 ```shell
-curl http://localhost:3000/api/v1/trip-search/_aggregateAgeByEndStations?ids=1,2,3,99999
-curl http://localhost:3000/api/v1/trip-search/_queryByEndStations?ids=1,2,3,533,235,12,4,5,2,7&quantity=20
+curl http://localhost:3000/api/v1/trip-search/_aggregateAgeByEndStations?ids=1,2,3,99999&X-API-KEY=abc
+curl http://localhost:3000/api/v1/trip-search/_queryByEndStations?ids=1,2,3,533,235,12,4,5,2,7&quantity=20&X-API-KEY=abc
 ```
 
 ## Debug It
@@ -82,9 +83,6 @@ npm run dev:debug
 npm run test:debug
 ```
 
-#### Debug with VSCode
-
-Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
 ## Lint It
 
 Note, everytime you run `npm run dev`, lint/prettier automatically runs  to fix any issues and format the code.
@@ -98,5 +96,5 @@ npm run lint
 Fix all prettier linter errors
 
 ```
-npm run lint
+npm run lint:fix
 ```
