@@ -243,6 +243,11 @@ paths:
           description: Return the API specification
           content: {}
 components:
+  securitySchemes:
+    ApiKeyAuth:        
+      type: apiKey
+      in: query       
+      name: X-API-KEY
   schemas:
     Example:
       type: object
@@ -278,3 +283,5 @@ components:
         name:
           type: string
           example: no_stress
+security:
+  - ApiKeyAuth: []     
