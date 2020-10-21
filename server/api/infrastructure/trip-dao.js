@@ -16,6 +16,9 @@ class TripDao {
     };
   }
 
+  /**
+   * Initializes the trip DAO by reading data from a file into memory.
+   */
   async initialize() {
     const cacheRecordsFromFile = async (fileName) => {
       if (!fs.existsSync(fileName)) {
@@ -65,6 +68,11 @@ class TripDao {
     return Promise.resolve(Object.values(this._tripsByEndStationId));
   }
 
+  /**
+   * 
+   * @param {[number]} ids of the end stations
+   * @returns {Promise} Object represents a map of {endStationId: [...trips...]} 
+   */
   getTripsAggregatedByEndStationIds(ids) {
     return Promise.resolve(_.pick(this._tripsByEndStationId, ids));
   }
