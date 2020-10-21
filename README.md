@@ -5,11 +5,12 @@ Bike sharing app based on Divvy data.
 ## Overview
 See [requirements](requirements.md). Also see [explanation](explanation.md) for more details on my approach to the problem.
 
-
 ## Get Started
 
 ### Pre-Requisite
 Go to the server/common/resources directory and unzip the Divvy_Trips_2019_Q2.zip file to the same directory (it was too big to commit directly to GitHub).
+
+Minimum required version of node is 11.4.0 to run this application (I tested mostly with 12.X and 14.12.0).
 
 ## Install Dependencies
 
