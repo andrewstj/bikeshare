@@ -8,12 +8,16 @@ import * as CSV from 'csv-string';
 class TripDao {
   constructor() {
     this._tripsByEndStationId = {};
+    this.addTrip = (trip) => {
+      if (!this._tripsByEndStationId[trip.endStationId]) {
+        this._tripsByEndStationId[trip.endStationId] = [];
+      }
+      this._tripsByEndStationId[trip.endStationId].push(trip);
+    };
   }
 
   async initialize() {
-    // TODO: Extract function for this.
     const cacheRecordsFromFile = async (fileName) => {
-      const tripRecords = [];
       if (!fs.existsSync(fileName)) {
         throw new Error('File not found: ' + fileName);
       }
@@ -27,14 +31,9 @@ class TripDao {
           isFirstLine = false;
         } else {
           const trip = extractTripFromLine(line);
-          if (!this._tripsByEndStationId[trip.endStationId]) {
-            this._tripsByEndStationId[trip.endStationId] = [];
-          }
-          this._tripsByEndStationId[trip.endStationId].push(trip);
-          tripRecords.push(trip);
+          this.addTrip(trip);
         }
       }
-      return tripRecords;
     };
 
     const extractTripFromLine = (line) => {
@@ -70,7 +69,6 @@ class TripDao {
     return Promise.resolve(_.pick(this._tripsByEndStationId, ids));
   }
 
-  // TODO: Add an insert method for testing.
 }
 
 export default new TripDao();

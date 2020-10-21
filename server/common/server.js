@@ -58,16 +58,14 @@ export default class ExpressServer {
     return this;
   }
 
-  async listen(port = process.env.PORT) {
+  listen(port = process.env.PORT) {
     const welcome = (p) => () =>
       l.info(
         `up and running in ${
           process.env.NODE_ENV || 'development'
         } @: ${os.hostname()} on port: ${p}}`
       );
-    return this.initialize().then(() => {
-      http.createServer(app).listen(port, welcome(port));
-      return app;
-    });
+    http.createServer(app).listen(port, welcome(port));
+    return app;
   }
 }
