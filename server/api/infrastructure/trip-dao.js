@@ -68,7 +68,6 @@ class TripDao {
   getTripsAggregatedByEndStationIds(ids) {
     return Promise.resolve(_.pick(this._tripsByEndStationId, ids));
   }
-
 }
 
 export default new TripDao();
